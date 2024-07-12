@@ -5,13 +5,8 @@
             <a-input v-model:value="form.username" placeholder="请输入用户名" style="width: 180px" />
             <a-button type="primary" @click="fetch">查询</a-button>
         </template>
-        <template #default="{ height }">
-            <a-table
-                :scroll="{ y: height }"
-                :columns="tableColumns"
-                :data-source="tableData"
-                :pagination="false"
-            ></a-table>
+        <template>
+            <a-table :columns="tableColumns" :data-source="tableData" :pagination="false"></a-table>
         </template>
         <template #pagination>
             <a-pagination :total="tableData.length" show-size-changer />
