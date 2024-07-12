@@ -3,9 +3,7 @@ defineOptions({
     name: 'LayoutPage'
 })
 
-import { useRoute } from 'vue-router'
 import { usePageTableSize } from '@/hooks'
-const route = useRoute()
 const pageTableRef = ref<HTMLElement>()
 const pageTableHeight = ref<number>(0)
 
@@ -18,9 +16,7 @@ interface IProps {
     title?: any
 }
 
-const meatTitle = computed(() => {
-    return route?.meta?.title || ''
-})
+const meatTitle = ''
 const props = withDefaults(defineProps<IProps>(), {
     scrollY: true,
     title: ''
@@ -54,7 +50,6 @@ $gap: 16px;
     display: flex;
     flex-direction: column;
     background: #fff;
-    box-shadow: 0 3px 6px #00000029;
     .page-header {
         height: 50px;
         line-height: 50px;

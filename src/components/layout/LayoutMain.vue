@@ -28,8 +28,8 @@ const { Content: LayoutContent } = Layout
 
 <style scoped lang="scss">
 .layout-page {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: none;
     .layout-content {
         flex: 1;

@@ -66,3 +66,7 @@ Opening method [modify variables or opening method as needed]
 Add after link: `?debug=true`
 
 such as: [http://127.0.0.1:5000/?debug=true](http://127.0.0.1:5000/?debug=true)
+
+## qiankun
+
+[https://github.com/tengmaoqing/vite-plugin-qiankun](https://github.com/tengmaoqing/vite-plugin-qiankun)

@@ -8,6 +8,9 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import dayjs from 'dayjs'
 // 引入插件
 import VitePluginMetaEnv from 'vite-plugin-meta-env'
+
+import qiankun from 'vite-plugin-qiankun'
+
 // gzip压缩
 // import { visualizer } from 'rollup-plugin-visualizer'
 // import viteCompression from 'vite-plugin-compression'
@@ -18,6 +21,7 @@ const { name: title, version: APP_VERSION } = pkg
 
 // https://vitejs.dev/config/
 export default (configEnv: ConfigEnv) => {
+    const microAppID = 'verifyFood'
     const { mode } = configEnv
     const env = loadEnv(mode, process.cwd())
     // 增加环境变量
@@ -29,7 +33,7 @@ export default (configEnv: ConfigEnv) => {
 
     return defineConfig({
         // 设置打包路径
-        base: mode === 'development' ? '/' : `/${title}/`,
+        base: mode === 'development' ? '/' : `/cloudbase-cms/apps/${microAppID}/`,
         // 插件
         plugins: [
             vue({
@@ -81,7 +85,11 @@ export default (configEnv: ConfigEnv) => {
             }),
             // 环境变量
             VitePluginMetaEnv(metaEnv, 'import.meta.env'),
-            VitePluginMetaEnv(metaEnv, 'process.env')
+            VitePluginMetaEnv(metaEnv, 'process.env'),
+            qiankun('verifyFood', {
+                useDevMode: true
+                // 其他的一些配置
+            })
         ],
         // 别名
         resolve: {
